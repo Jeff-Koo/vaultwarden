@@ -33,7 +33,7 @@ services:
       - "traefik.http.routers.krystal-vault.rule=Host(`${VW_DOMAIN}`)"
       - "traefik.http.routers.krystal-vault.entrypoints=websecure"
       - "traefik.http.routers.krystal-vault.tls=true"
-      - "traefik.http.routers.krystal-vault.tls.certresolver=letsencrypt"
+      - "traefik.http.routers.krystal-vault.tls.certresolver=${TRAEFIK_CERTRESOLVER}"
       - "traefik.http.routers.krystal-vault.service=krystal-vault-svc"
       - "traefik.http.services.krystal-vault-svc.loadbalancer.server.port=80"
 
