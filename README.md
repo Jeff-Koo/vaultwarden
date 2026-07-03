@@ -41,6 +41,8 @@ POSTGRES_DB="postgres"
 ### --- Vault Configuration ---
 ### Domain for the Vaultwarden instance
 VW_DOMAIN=
+### Cert Resolver defined in Traefik
+TRAEFIK_CERTRESOLVER=
 
 ### Admin Panel Password (Argon2id Hash)
 ### Generate with `docker run --rm -it vaultwarden/server /vaultwarden hash`
