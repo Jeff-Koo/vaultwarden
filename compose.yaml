@@ -2,7 +2,7 @@ services:
   vaultwarden:
     image: vaultwarden/server:1.36.0
     container_name: vault-app
-    restart: always
+    restart: unless-stopped
     environment:
       DOMAIN: "https://${VW_DOMAIN}"
       SIGNUPS_ALLOWED: ${VW_SIGNUPS_ALLOWED}
@@ -34,8 +34,8 @@ services:
       - "traefik.http.routers.krystal-vault.entrypoints=websecure"
       - "traefik.http.routers.krystal-vault.tls=true"
       - "traefik.http.routers.krystal-vault.tls.certresolver=${TRAEFIK_CERTRESOLVER}"
-      - "traefik.http.routers.krystal-vault.service=krystal-vault-svc"
       - "traefik.http.services.krystal-vault-svc.loadbalancer.server.port=80"
+      - "traefik.http.routers.krystal-vault.service=krystal-vault-svc"
 
   db:
     image: postgres:16-alpine
