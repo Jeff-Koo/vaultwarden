@@ -19,6 +19,22 @@ services:
       #SSO_CLIENT_CACHE_EXPIRATION: 0
       #SSO_ONLY: "false" # Set to true to disable email+master password login and require SSO
       #SSO_SIGNUPS_MATCH_EMAIL: "true" # Match first SSO login to existing account by email
+      # Push Notifications Settings
+      PUSH_ENABLED: ${PUSH_ENABLED:-false}
+      PUSH_INSTALLATION_ID: ${INSTALLATION_ID}
+      PUSH_INSTALLATION_KEY: ${INSTALLATION_KEY}
+      # SMTP Settings
+      SMTP_HOST: ${SMTP_HOST}
+      SMTP_FROM: ${SMTP_FROM}
+      SMTP_FROM_NAME: ${SMTP_FROM_NAME}
+      SMTP_USERNAME: ${SMTP_USERNAME}
+      SMTP_PASSWORD: ${SMTP_PASSWORD}
+      SMTP_TIMEOUT: ${SMTP_TIMEOUT:-15}
+      SMTP_AUTH_MECHANISM: ${SMTP_AUTH_MECHANISM}
+      SMTP_SECURITY: ${SMTP_SECURITY:-starttls}
+      SMTP_PORT: ${SMTP_PORT:-587}
+      # Organization Settings
+      ORG_GROUPS_ENABLED: ${ORG_GROUPS_ENABLED:-false}
     networks:
       - vault-network
       - traefik-proxy
